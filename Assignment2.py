@@ -14,7 +14,6 @@ def second_stage():
 
     while True:
 
-
         a = dice_roll()
 
         if a == 7:
