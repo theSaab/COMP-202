@@ -13,7 +13,7 @@ def second_stage():
     b = pass_line()
 
     while True:
-        
+
 
         a = dice_roll()
 
