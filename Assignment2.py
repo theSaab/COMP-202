@@ -1,3 +1,5 @@
+"""
+
 from random import *
 
 def dice_roll():
@@ -87,3 +89,22 @@ def play():
             second_stage()
 
 play()
+
+"""
+"""
+
+mult = [[1,2], [2,4], [3, 6]]
+
+for a in mult:
+    
+    print(a)
+    sum = 0
+
+    for b in a:
+        sum += b
+        
+print(sum)
+
+"""
+
+print('waf')
