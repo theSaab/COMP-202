@@ -1,13 +1,13 @@
 
 def display():
-    
+    #this displays the message of a vending machine
     print('Welcome, you want food? ')
     print('We got these things: \n 1. Candy Bar: $2.95 \n 2. Cookies: $3.90 \n 3. Soda: $4.00 \n 4. Chips $3.90 \n 5. No food ')
     
 
 
 def prices():
-
+    #presents prices of foods in machine
     x = int(input('\nGive your choice  '))
     print('The price of your choice is', end=' ')
     if x == 1:
@@ -22,7 +22,7 @@ def prices():
         print(0)
 
 def coins(price, value, available):
-
+    #determines amount of coins to return as change
     x = 0
     sum = 0
     
@@ -36,7 +36,7 @@ def coins(price, value, available):
 
 def change():
 
-    
+    #tells person how much change they are going to receive
     x = float(input('How much money in dollars you got?  '))
     x = x * 100
     print('\nYou have ' + str(int(x)) + ' cents.')
@@ -54,7 +54,7 @@ def change():
 
 
     a = x % 5 == 0
-
+    #calculates how much of each type of change they will return to person
     if x % 5 != 0:
         print('We do not take pennies. Leave.')
     elif int(prices()) > x:
@@ -82,7 +82,7 @@ def change():
             
             x -= nick
             n += 1
-
+        #prints amount of each coin
         print('\nHere is your change: ')
         print('Toonies x ' + str(t))
         print('Loonies x ' + str(l))
@@ -92,6 +92,7 @@ def change():
         
 
 def operation():
+    #puts all functions together for the vending machine
     display()
     
     prices()
@@ -99,12 +100,11 @@ def operation():
     #coins(1000, 100, 8)
     change()
 
-operation()
 
 from math import *
 
 def display():
-
+    #pizza program to avoid gettin ripped off, 
     print('Welcome to the pizza time zone...\nThese are the methods:')
     print('A. Quantity Quantfication')
     print('B. Money Mode\n')
@@ -119,7 +119,7 @@ def display():
 
 
 def fair_quantity():
-
+    #calculates how much small pizzas one must buy to have the same amount of a bigger pizza
     print('\nYou are now in Quantity Quantification sir. ')
     big = input('What is the diameter of the big pizzas? ')
     small = input('What is the diameter of smaller pizzas? ')
@@ -131,6 +131,7 @@ def fair_quantity():
             
             break
         except ValueError:
+            #prevents errors
             print('Give Positive Numbers only please\n')
             big = input('What is the diameter of the big pizza? ')
             small = input('What is the diameter of smaller pizza? ')
@@ -138,11 +139,10 @@ def fair_quantity():
     
     Abig = ((big/2)**2) * pi
     Asmall = ((small/2)**2) * pi
-    #print(Abig)
-    #print(Asmall)
+ 
     num_smalls = 0
     total_area = 0
-
+    #determines how much
     if Abig == Asmall:
         print('They are the same size...')
    
@@ -155,11 +155,11 @@ def fair_quantity():
 
             num_smalls += 1
             total_area += Asmall
-
+    #presents how much of small pizzas
         print('You will need at least ' + str(num_smalls) +' of the smaller pizzas to get an equal amount.')
 
 def money_mode():
-
+    #program to see how much one should pay for a small pizza to avoid getting ripped off
     print('\nYou\'ve chosen money mode.')
     
     Dbig = input('What is the diameter of the big pizza? ')
@@ -180,6 +180,7 @@ def money_mode():
             
                 break
             except ValueError:
+                #prevent errors
                 print('\nGive Positive Numbers only please\n')
                 Dbig = input('What is the diameter of the big pizza? ')
                 Pbig = input('What is the price of the big one? ')
@@ -195,6 +196,7 @@ def money_mode():
         print(format(fair_price, '.2f'))
 
 def pizza_operation():
+    #puts the whole program together
 
     print('Welcome to the pizza time zone...\nThese are the methods:')
     print('A. Quantity Quantfication')
