@@ -18,14 +18,19 @@ def second_stage():
         a = dice_roll()
 
         if a == 7:
+            #applying the rules of the game in the program
             print(a)
             print('You lose')
+            #lose = stop
             break
         elif a == b:
+            #when you win it stops
             print(a)
             break
         else:
+            #print results
             print(a, end=' ')
+
 
 def can_play():
     #determine if person has funding to play the game with their bet
@@ -41,15 +46,18 @@ def can_play():
                 break            
             
             except ValueError:
+                #preventing errors
                 print('\nPlease enter valid numbers\n')
                 x = (input('How much money do you have? '))
                 y = (input('Please place your bet here: '))
                 continue
     
     if y > x:
+        #if you have no money, it wont let you play
         print('You have insufficient funds, find coins somewhere...')
         return False    
     else:
+        #allows you to play
         print('\nYou can play\n')
         return True
     
@@ -61,6 +69,7 @@ def pass_line():
     #modified pass line bet number roll, more messages
     result = dice_roll()
 
+    #depending on the result of the dice, you win or lose, messages present
     if result == 7 or result == 11:
         print('A ' + str(result) + ' has been rolled. You win!')
         return True
@@ -78,6 +87,7 @@ def play():
         print('done')
     
     if a == True:
+        #if it allows you to play the program continues
         
         a = pass_line()
         
@@ -95,6 +105,7 @@ def in_alpha(word):
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     if ' ' in word == True:
+        #if there is a space in your word, it is not in the alphabet
         print('False')
     
     else:
@@ -123,6 +134,7 @@ def shift():
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     a = 0
     if key > 26:
+        #prevent erros from missing numbers
         while key > 26:
             key -= 26
     if len(letter) > 1:
@@ -138,6 +150,7 @@ def shift():
             else:
                 a += 1
         shifted = alphabet[a + key]
+        #print shifted word
 
         print(shifted)
 
@@ -150,13 +163,16 @@ def get_keys():
     word = str.lower(word)
 
     if len(word) == 0 :
-        print(lst)        
+    #if the word is empty nothing happens
+       print(lst)        
       
     elif in_alpha(word) == False:
+        #if the word isnt made up of alphabetical letter, it stops
         print('bad')
     
     else:
         for char in word:
+            #add characters in list
             lst.append(alphabet.find(char))
 
             print(lst)
@@ -204,14 +220,13 @@ def vignere():
             while num >= len(key):
                 a += 1
                 num -= len(key)
-
+            #print new code word for next part of program
             new = str(key) * a + str(key[0:num])
             
-       
-        
 
             x = 0
             for char in new:
+                #print encrypted word
                 a = alphabet.find(char)
              
                 
@@ -231,6 +246,7 @@ def vignere():
                         break
         
         else:
+            #same program as before without adjustements to key
             x = 0
             for char in key:
                 a = alphabet.find(char)
