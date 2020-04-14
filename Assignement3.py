@@ -35,9 +35,6 @@ def display(x, y):
         print(left + line + right)
         print(seperation)
     print(left + line + right)
-  #  for i in range(y):
-      #  print('|   |', end=' ')
-    #for i in range(y):
-     #   print('|    |    |    |    | \n+-------------------+')
+
 
 display(4,2)
