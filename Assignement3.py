@@ -82,15 +82,6 @@ def display():
         out += 1
         if out == len_outside:
             break
-        
 
-        
-
-
-            
     print(left+line+right)
-    #for i in range(len_outside):
-    #    print(left + line + right)
-    #print(left + line + right)
 
-display()
