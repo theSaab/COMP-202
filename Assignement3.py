@@ -85,3 +85,38 @@ def display():
 
     print(left+line+right)
 
+def vertical(column):
+
+    b = [['c', 'a', 't', 's',], [' ', 'a', 'r', 't'], ['', '', 'a', ' ']]
+    lst = []
+    for i in range(len(b)):
+        lst.append(b[i][column])
+    print(lst)
+
+def find(x):
+
+    b = [' ', 'squi', '', 'rre', 'l']
+    word = ''
+    num = 1
+    while num < len(b):
+        if b[x-num] == '' or b[x-num] == ' ':
+            break
+        else:
+            word = b[x-num] + word  
+            num += 1
+    for i in range(x, len(b)):
+
+        word = word + b[i] 
+    print(word)
+
+def space():
+
+    b = [' ', ' ', ' ', ' ', ' ']
+    count = 0
+    for i in range(len(b)):
+        if b[i] == ' ':
+            count += 1
+        else:
+            continue
+    print(count)
+space()
