@@ -48,14 +48,14 @@ def create_board(x, y):
 
 def display():
 
-    b = [['23','14ere','11'], ['2', 'here', 'boo']]
+    b = [[' ', ' ', ' ', ' ', ' '], [' ', 'c', 'a', 't', 's']]
 
     
     left =  '+-'
-    right = '--+'
+    right = '-+'
     middle = '------'
     line = ''
-    seperators = ' |'
+    seperators = '  |'
     seperation = '| '
     len_outside = len(b)
     len_inside = len(b[1])
@@ -70,21 +70,27 @@ def display():
 
     for i in range(len_inside-1):
         line += middle
+    num = 0
 
-    for i in range(len_inside):
-        seperation += (b[out][inside] + seperators + '')
-        #if out >= len_outside-1:
-        #    continue
-        #else:
-        #    out += 1
-        if inside >= len_inside-1:
-            continue
-        else:
-            inside += 1
-
-    for i in range(len_outside):
+    while num < len_outside:
+        
+        for i in range(len_inside):
+            seperation += (b[out][i] + seperators + '')
         print(left + line + right)
         print(seperation)
-    print(left + line + right)
+        seperation = ' | '
+        out += 1
+        if out == len_outside:
+            break
+        
+
+        
+
+
+            
+    print(left+line+right)
+    #for i in range(len_outside):
+    #    print(left + line + right)
+    #print(left + line + right)
 
 display()
