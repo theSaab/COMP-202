@@ -119,4 +119,29 @@ def space():
         else:
             continue
     print(count)
-space()
+
+def fit(word, position):
+
+    alpha = 'abcdefghijklmnopqrstuvwxyz'
+    b = ['a', ' ', ' ', 'b', ' ', ' ', 'c', ' ', ' ']
+    len_word = len(word)
+    num = 1
+    count = 0
+    
+    if b[position] in alpha == True:
+        print(b[position] not in alpha)
+    
+    else:
+            
+        for i in range(0, len(b)):
+            if b[i] == ' ':
+                count += 1
+
+            else:
+                continue
+        if count >= len_word:
+            print('True')
+        else:
+            print('False')        
+
+fit('apple', 4)
