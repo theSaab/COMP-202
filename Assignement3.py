@@ -3,13 +3,13 @@
 """
 
 def display(x, y):
-     
+
     for i in range(x+1):
         if i == x:
             print('  ' + str(i))
         else:
             print('  ' + str(i), end='   ')
-    
+
     left =  '+-'
     right = '--+'
     middle = '-----'
@@ -21,7 +21,7 @@ def display(x, y):
         line += middle
     for i in range(x):
         seperation += seperators
-    
+
     for i in range(y):
         print(left + line + right)
         print(seperation)
@@ -33,16 +33,16 @@ display(4,2)
 
 
 def create_board(x, y):
-    
+
     lst = []
     inside_lst = []
-    
+
     for i in range(y):
         inside_lst.append(' ')
 
     for i in range(x):
         lst.append(inside_lst)
-    
+
     return lst
 
 
@@ -50,8 +50,7 @@ def display():
 
     b = [[' ', ' ', ' ', ' ', ' '], [' ', 'c', 'a', 't', 's']]
 
-    
-    left =  '+-'
+    left = '+-'
     right = '-+'
     middle = '------'
     line = ''
@@ -61,7 +60,7 @@ def display():
     len_inside = len(b[1])
     out = 0
     inside = 0
-    
+
     for i in range(len_inside):
         if i == len_inside-1:
             print('  ' + str(i))
@@ -73,7 +72,7 @@ def display():
     num = 0
 
     while num < len_outside:
-        
+
         for i in range(len_inside):
             seperation += (b[out][i] + seperators + '')
         print(left + line + right)
@@ -85,13 +84,15 @@ def display():
 
     print(left+line+right)
 
+
 def vertical(column):
 
-    b = [['c', 'a', 't', 's',], [' ', 'a', 'r', 't'], ['', '', 'a', ' ']]
+    b = [['c', 'a', 't', 's', ], [' ', 'a', 'r', 't'], ['', '', 'a', ' ']]
     lst = []
     for i in range(len(b)):
         lst.append(b[i][column])
     print(lst)
+
 
 def find(x):
 
@@ -102,12 +103,13 @@ def find(x):
         if b[x-num] == '' or b[x-num] == ' ':
             break
         else:
-            word = b[x-num] + word  
+            word = b[x-num] + word
             num += 1
     for i in range(x, len(b)):
 
-        word = word + b[i] 
+        word = word + b[i]
     print(word)
+
 
 def space():
 
@@ -120,6 +122,7 @@ def space():
             continue
     print(count)
 
+
 def fit(word, position):
 
     alpha = 'abcdefghijklmnopqrstuvwxyz'
@@ -127,12 +130,12 @@ def fit(word, position):
     len_word = len(word)
     num = 1
     count = 0
-    
+
     if b[position] in alpha == True:
         print(b[position] not in alpha)
-    
+
     else:
-            
+
         for i in range(0, len(b)):
             if b[i] == ' ':
                 count += 1
@@ -142,6 +145,97 @@ def fit(word, position):
         if count >= len_word:
             print('True')
         else:
-            print('False')        
+            print('False')
 
-fit('apple', 4)
+
+def count():
+    dic = {}
+    word = 'banana'
+    count = 1
+
+    for char in word:
+
+        if (char in dic) == True:
+            dic[char] += 1
+
+        else:
+            dic[char] = count
+
+    print(dic)
+
+
+def flatten():
+
+    dic = {'a': 0, 'f': 1, 'k': 5}
+    lst = []
+
+    for key in dic:
+        num = int(dic[key])
+        for i in range(num):
+            lst.append(key)
+    print(lst)
+
+
+def score():
+    dic = {'a': 5, 't': 3, 'n': -2}
+    word = 'cat'
+    points = 0
+
+    for char in word:
+        if (char in dic) == False:
+            continue
+        else:
+            points += dic[char]
+
+    print(points)
+
+
+a = {'a': 2, 'c': 1}
+b = {'a': 2, 'b': 1, 'c': 2}
+c = {'a': 5, 'b': 3}
+
+
+def subset(d1, d2):
+    count = 0
+    for key in d1:
+        if (key in d2) == True:
+            count += 1
+            continue
+        else:
+            return (key in d2)
+            break
+    if count == len(d1):
+        return True
+    return(key in d2)
+
+
+def substract(d1, d2):
+
+    if subset(d2, d1) == True:
+        for key in d2:
+            d1[key] = d1[key] - d2[key]
+
+            if d1[key] == 0:
+                del d1[key]
+        print(d1)
+    else:
+        print(subset(d2, d1))
+
+
+def create_scrabble_dict():
+    result = {}
+    w = ['aa', 'qi', 'za', 'cat', 'can',
+         'cow', 'dog', 'dad', 'hippo', 'umami', 'uncle']
+
+    for x in w:
+        if len(x) in result.keys():
+            if x[0] in result[len(x)]:
+                result[len(x)][x[0]].append(x)
+            else:
+                result[len(x)][x[0]] = [x]
+        else:
+            result[len(x)] = {x[0]: [x]}
+    print(result)
+
+
+create_scrabble_dict()
