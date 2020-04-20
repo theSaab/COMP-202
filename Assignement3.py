@@ -1,6 +1,7 @@
 
 
-"""
+import random
+
 
 def display(x, y):
 
@@ -10,7 +11,7 @@ def display(x, y):
         else:
             print('  ' + str(i), end='   ')
 
-    left =  '+-'
+    left = '+-'
     right = '--+'
     middle = '-----'
     line = ''
@@ -26,13 +27,6 @@ def display(x, y):
         print(left + line + right)
         print(seperation)
     print(left + line + right)
-
-
-display(4,2)
-"""
-
-
-import random
 
 
 def create_board(x, y):
@@ -319,4 +313,4 @@ def refill(rack, dic, limit):
     print(rack)
 
 
-refill({'a': 2, 'k': 1}, {'a': 1, 'r': 5}, 7)
+def compute_score(lst, point_dic):
