@@ -43,45 +43,6 @@ def create_board(x, y):
     return lst
 
 
-def display():
-
-    b = [[' ', ' ', ' ', ' ', ' '], [' ', 'c', 'a', 't', 's']]
-
-    left = '+-'
-    right = '-+'
-    middle = '------'
-    line = ''
-    seperators = '  |'
-    seperation = '| '
-    len_outside = len(b)
-    len_inside = len(b[1])
-    out = 0
-    inside = 0
-
-    for i in range(len_inside):
-        if i == len_inside-1:
-            print('  ' + str(i))
-        else:
-            print('  ' + str(i), end='   ')
-
-    for i in range(len_inside-1):
-        line += middle
-    num = 0
-
-    while num < len_outside:
-
-        for i in range(len_inside):
-            seperation += (b[out][i] + seperators + '')
-        print(left + line + right)
-        print(seperation)
-        seperation = ' | '
-        out += 1
-        if out == len_outside:
-            break
-
-    print(left+line+right)
-
-
 def vertical(column):
 
     b = [['c', 'a', 't', 's', ], [' ', 'a', 'r', 't'], ['', '', 'a', ' ']]
@@ -313,4 +274,68 @@ def refill(rack, dic, limit):
     print(rack)
 
 
-def compute_score(lst, point_dic):
+def display(b):
+
+    left = '+-'
+    right = '-+'
+    middle = '------'
+    line = ''
+    seperators = '  |'
+    seperation = '| '
+    len_outside = len(b)
+    len_inside = len(b[1])
+    out = 0
+    inside = 0
+
+    for i in range(len_inside):
+        if i == len_inside-1:
+            print('  ' + str(i))
+        else:
+            print('  ' + str(i), end='   ')
+
+    for i in range(len_inside-1):
+        line += middle
+    num = 0
+
+    while num < len_outside:
+
+        for i in range(len_inside):
+            seperation += (b[out][i] + seperators + '')
+        print(left + line + right)
+        print(seperation)
+        seperation = ' | '
+        out += 1
+        if out == len_outside:
+            break
+
+    print(left + line + right)
+
+
+a = [[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '],
+     [' ', ' ', ' ', ' '], ['h', ' ', ' ', 'j']]
+
+
+def place_tiles(lst, word, row, col, dir):
+    count = 0
+
+    if (len(word) > (len(lst) - row)) or (len(word) > (len(lst[0]) - col)):
+        print('too long')
+
+    elif dir == 'right':
+
+        for char in word:
+            lst[row][col + count] = char
+            count += 1
+
+    elif dir == 'down':
+
+        for char in word:
+            lst[row + count][col] = char
+            count += 1
+
+    return lst
+
+
+z = place_tiles(a, 'in', 1, 2, 'down')
+
+display(z)
