@@ -32,6 +32,9 @@ display(4,2)
 """
 
 
+import random
+
+
 def create_board(x, y):
 
     lst = []
@@ -222,10 +225,10 @@ def substract(d1, d2):
         print(subset(d2, d1))
 
 
-def create_scrabble_dict():
+def create_scrabble_dict(w):
     result = {}
-    w = ['aa', 'qi', 'za', 'cat', 'can',
-         'cow', 'dog', 'dad', 'hippo', 'umami', 'uncle']
+   # w = ['aa', 'qi', 'za', 'cat', 'can',
+    #     'cow', 'dog', 'dad', 'hippo', 'umami', 'uncle']
 
     for x in w:
         if len(x) in result.keys():
@@ -238,4 +241,82 @@ def create_scrabble_dict():
     print(result)
 
 
-create_scrabble_dict()
+def valid():
+    word = 'zebra'
+    w = ['aa', 'qi', 'za', 'cat', 'can', 'cow',
+         'dog', 'dad', 'hippo', 'umami', 'uncle']
+    d = create_scrabble_dict(w)
+    if (word in w) == True:
+        print(True)
+    else:
+        print(False)
+
+
+def rack():
+    dic = {'g': 2, 'k': 0, 'p': 4}
+    for key in dic:
+        num = dic[key]
+        key = str.upper(key)
+
+        for i in range(num):
+            print(key, end=' ')
+
+
+def has_letters(dic, word):
+    point = 0
+    lst = []
+    for char in word:
+        count = word.count(char)
+
+        if (char in dic) == False:
+            print(False)
+            break
+        else:
+            if count > dic[char]:
+                print(False)
+                break
+            else:
+                point += 1
+                continue
+
+    if point == len(word):
+        for char in word:
+            count = word.count(char)
+            if (char in lst) == True:
+                continue
+            else:
+                if (char in dic) == False:
+                    continue
+                else:
+                    dic[char] = dic[char] - count
+                    lst.append(char)
+
+    if point == len(word):
+        for key in list(dic):
+            if dic[key] == 0:
+                dic.pop(key)
+
+    if point == len(word):
+        print(True)
+
+    print(dic)
+
+
+def refill(rack, dic, limit):
+    lst = list(dic)
+    sum = 0
+
+    while (sum <= limit):
+        for key in rack:
+            sum += rack[key]
+        a = random.choice(lst)
+        if (a in rack) == True:
+            rack[a] = rack[a] + dic[a]
+            dic[a] = dic[a]-dic[a]
+        else:
+            rack[a] = dic[a]
+            dic[a] = dic[a] - dic[a]
+    print(rack)
+
+
+refill({'a': 2, 'k': 1}, {'a': 1, 'r': 5}, 7)
