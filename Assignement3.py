@@ -1,4 +1,8 @@
 
+# Program written to simulate a scrabbble board game, more or less.
+# You input lists and dictionaries as words, letters and such, the board is created using 2 integers for length and width
+# it shouldnt let you submit a word that isnt in a dictionary or too long
+
 
 import random
 
