@@ -1,5 +1,6 @@
 
 
+
 from math import *
 
 
@@ -223,4 +224,13 @@ def pizza_operation():
 # display()
 
 
-pizza_operation()
+print("Hi")
+
+
+def f():
+    print(__name__)
+
+
+if __name__ == "__main__":
+    f()
+    print("Hey")

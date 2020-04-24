@@ -13,7 +13,6 @@
 # print(str(0))
 
 
-
 #print('give 2 numbers')
 #first = input()
 #second = input()
@@ -1189,5 +1188,15 @@ def play():
 play()
 """
 
-print('gesgsegeg'
-      'fsefs efse ')
+
+def my_func(a):
+    a[-1] = a[0]
+    b = []
+    for i in range(len(a)):
+        b.append(a[i]*2)
+    a = b
+
+
+x = [1, 4, 9, 16, 25]
+my_func(x)
+print(x)
