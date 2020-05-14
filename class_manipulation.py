@@ -79,3 +79,27 @@ def movie_return(name, length, director, actors):
 
 m1 = movie_return('red', '24 minutes', 'john smoth', ['x', 'y', 'z'])
 
+
+class Cats:
+
+    def __init__(self, name= '', age = 0.0):
+        self.name = name
+        self.age = age
+        
+    def meow(cat):
+        
+        if cat.age < 1:
+            print(cat.name + ' mews')
+        else:
+            print(cat.name + ' meow')        
+            
+    def birthday(cat):
+        
+        cat.age += 1
+        print(cat.age)
+        
+       
+c1 = Cats('john')
+c2 = Cats('lilo', 7)
+
+c2.birthday()
