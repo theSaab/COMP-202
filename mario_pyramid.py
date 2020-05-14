@@ -1,14 +1,17 @@
 
 
-def mario(heigth):
-    level = (' ' * height) + '#'
-    count = 1
+def mario(height):
+    count = height
+    num = 0
+    level = (' ' * (count-1)) + '#'
 
     for i in range(height):
         print(level)
-        level(height - count) = '#'
+        count -= 1
+        num += 1
+        level = (' ' * count) + '#' * num
 
-    return heigth
+    #  return level
 
 
-merio(8)
+mario(8)
