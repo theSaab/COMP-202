@@ -66,10 +66,16 @@ class Movie:
         print(self.length)
         print(self.director)
         print(self.actors)
+        
+    def has_actor(self, actor):
+        
+        if actor in self.actors:
+            print('Yes')
+        else:
+            print('no')
     
 def movie_return(name, length, director, actors):
     return (Movie(name, length, director, actors))
 
-m1 = movie_return('rede', '24 minutes', 'john smoth', ['x', 'y', 'z'])
+m1 = movie_return('red', '24 minutes', 'john smoth', ['x', 'y', 'z'])
 
-m1.display_info()
