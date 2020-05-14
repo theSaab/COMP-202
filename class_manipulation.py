@@ -15,10 +15,12 @@ class Student:
     passing_grade = 60
     number_of_students = 0
 
-    def __init__(self, name='Harry', age='23', id_num='12345'):
+    def __init__(self, name='Harry', age='23', id_num='12345', courses=[]):
         self.name = name
         self.age = age
         self.id_num = id_num
+        self.courses = courses
+        
 
     def showAge(self):
         print(self.age)
@@ -31,18 +33,43 @@ class Student:
         self.showAge()
         self.showName()
         print(self.id_num)
+        print(self.courses)
 
     def update_name(self, name):
 
         self.name = name
 
+    def add_course(self, course):
+        
+        self.courses.append(course)
 
-def student_return(name, age, number):
-    return (Student(name, age, number))
+def student_return(name, age, number, courses):
+    return (Student(name, age, number, courses))
 
 
-s1 = student_return('john', 24, 23233)
-s2 = student_return('Joe', 14, 24333)
-s1.display_info()
-s1.update_name('johnny')
-s1.display_info()
+
+s1 = student_return('john', 24, 23233, ['math', 'history', 'chem'])
+s2 = student_return('Joe', 14, 24333, [])
+
+
+class Movie:
+
+    def __init__(self, name='Harry', length='23 minutes', director='him', actors=[]):
+        self.name = name
+        self.length = length
+        self.director = director
+        self.actors = actors
+        
+    def display_info(self):
+
+        print(self.name)
+        print(self.length)
+        print(self.director)
+        print(self.actors)
+    
+def movie_return(name, length, director, actors):
+    return (Movie(name, length, director, actors))
+
+m1 = movie_return('rede', '24 minutes', 'john smoth', ['x', 'y', 'z'])
+
+m1.display_info()
