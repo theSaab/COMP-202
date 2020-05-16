@@ -187,10 +187,8 @@ class Book:
         price = []
         for element in titles:
             price.append(element.price)
-        
-        print(min(float(i) for i in price))
 
-        
+        print(min(float(i) for i in price))
 
 
 b1 = Book('bruh', 'mike lao', 1234, 3.7, 'horror')
@@ -204,4 +202,3 @@ b8 = Book('bruh', 'mike lao', 1234, 33.7, 'horror')
 b9 = Book('bruh', 'mike lao', 1234, 53.7, 'horror')
 
 book_list = [b1, b2, b3, b4, b5, b6, b7, b8, b9]
-
