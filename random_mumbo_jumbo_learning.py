@@ -1188,3 +1188,17 @@ def play():
 play()
 """
 
+def split_in_two(word):
+
+    even = ''
+    odd =''
+    
+    for i in range(0, len(word), 2):
+        even += word[i]
+    for i in range(1, len(word), 2):
+        odd += word[i]
+
+    tuple = (even, odd)
+    print(tuple)
+
+tower_of_subsets()
