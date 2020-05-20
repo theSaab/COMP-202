@@ -1201,4 +1201,12 @@ def split_in_two(word):
     tuple = (even, odd)
     print(tuple)
 
-tower_of_subsets()
+
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+
+ 
+page = requests.get("http://www.pythonchallenge.com/pc/def/0.html")
+
+page = http://www.pythonchallenge.com
